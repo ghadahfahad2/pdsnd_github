@@ -23,31 +23,31 @@ def get_filters():
         city = input('Enter one of three city(chicago, new york, washington) >>')
         if city.lower() not in valid_city:
              print('Error >> Please choose one of the three cities')
-     
+
         else:
              city=city.lower()
              break
     # TO DO: get user input for month (all, january, february, ... , june)
-     
+
     valid_month=['january', 'february', 'march', 'april', 'may', 'june','all']
     while True:
         month = input('choose a month you want to filter by it ?(january, february, march, april, may, june ) >>')
         if month.lower() not in valid_month:
              print('Error >> Please choose one of valid day or all ')
-     
+
         else:
              month=month.lower()
              break
- 
 
-    # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
-   
+
+    # TO DO: input user  for day of week (all, monday, tuesday, ... sunday)
+
     valid_day=['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday','sunday' ,'all']
     while True:
         day = input('choose a day of week you want to filter by it ?(monday, tuesday, wednesday,thursday,     friday, saturday,sunday) Or all >>')
         if day.lower() not in valid_day:
              print('Error >> Please choose one of valid day or all ')
-     
+
         else:
              day=day.lower()
              break
@@ -66,7 +66,7 @@ def load_data(city, month, day):
     Returns:
         df - Pandas DataFrame containing city data filtered by month and day
     """
-       # load data file into a dataframe
+       # load data file
     df = pd.read_csv(CITY_DATA[city])
 
     df['Start Time'] = pd.to_datetime(df['Start Time'])
@@ -162,13 +162,13 @@ def user_stats(df):
     # TO DO: Display earliest, most recent, and most common year of birth
     print("\n earliest year of birth")
     print(max(df['Birth Year']))
- 
+
     print("\n most recent year of birth")
-    print(min(df['Birth Year']))     
- 
+    print(min(df['Birth Year']))
+
     print("\n most common year of birth")
-    print(df['Birth Year'].mode())         
- 
+    print(df['Birth Year'].mode())
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -190,4 +190,3 @@ def main():
 
 if __name__ == "__main__":
 	main()
-  
